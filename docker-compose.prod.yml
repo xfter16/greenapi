@@ -1,0 +1,10 @@
+services:
+  app:
+    image: ${IMAGE}
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - ID_INSTANCE=${ID_INSTANCE:-}
+      - API_TOKEN_INSTANCE=${API_TOKEN_INSTANCE:-}
+      - CHAT_ID=${CHAT_ID:-}

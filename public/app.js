@@ -3,6 +3,18 @@
   const idInstance = () => document.getElementById('idInstance').value.trim();
   const apiTokenInstance = () => document.getElementById('apiTokenInstance').value.trim();
 
+  const apiTokenInput = document.getElementById('apiTokenInstance');
+  const toggleBtn = document.querySelector('.toggle-password');
+  if (toggleBtn && apiTokenInput) {
+    toggleBtn.addEventListener('click', () => {
+      const isPass = apiTokenInput.type === 'password';
+      apiTokenInput.type = isPass ? 'text' : 'password';
+      toggleBtn.classList.toggle('visible', isPass);
+      toggleBtn.setAttribute('aria-label', isPass ? 'Скрыть токен' : 'Показать токен');
+      toggleBtn.setAttribute('title', isPass ? 'Скрыть токен' : 'Показать токен');
+    });
+  }
+
   function show(data) {
     responseEl.textContent = typeof data === 'string' ? data : JSON.stringify(data, null, 2);
   }
