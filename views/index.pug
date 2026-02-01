@@ -1,0 +1,36 @@
+extends layout.pug
+
+block content
+  .page
+    .panel-left
+      .section
+        label IdInstance
+        input#idInstance(type="text" placeholder="IdInstance" value=idInstance)
+      .section
+        label ApiTokenInstance
+        input#apiTokenInstance(type="text" placeholder="ApiTokenInstance" value=apiTokenInstance)
+      .section.buttons
+        button#btnGetSettings(type="button") getSettings
+        button#btnGetStateInstance(type="button") getStateInstance
+
+      .section
+        h3 Отправка сообщения
+        label Получатель
+        input#messageChatId(type="text" value=chatId placeholder=chatId)
+        label Сообщение
+        textarea#messageText(rows="4" placeholder="Текст сообщения") Hello World!
+        button#btnSendMessage(type="button") sendMessage
+
+      .section
+        h3 Отправка файла по URL
+        label Получатель
+        input#fileChatId(type="text" value=chatId placeholder=chatId)
+        label URL файла
+        input#fileUrl(type="text" value="https://avatars.mds.yandex.net/get-pdb/477388/77f64197-87d2-42cf-9305-14f49c65f1da/s375" placeholder="https://...")
+        button#btnSendFileByUrl(type="button") sendFileByUrl
+
+    .panel-right
+      h2 Ответ:
+      pre#response {}
+
+  script(src="/app.js")
